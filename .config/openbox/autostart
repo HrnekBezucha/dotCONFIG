@@ -1,0 +1,47 @@
+## Openbox autostart
+## ====================
+## Note: some programs, such as 'nm-applet' are run via XDG autostart.
+## Run
+## /usr/lib/x86_64-linux-gnu/openbox-xdg-autostart --list
+## or
+## More information about this can be found at:
+## http://openbox.org/wiki/Help:Autostart
+### SETTINGS START
+
+## Turn on/off system beep.
+xset b off &
+xset s off &
+
+## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
+## Adjust the values according to your preferances.
+xset r rate 250 25 &
+
+## Configure touchpad. See 'man synaptics' for more info.
+synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null &
+
+## Disable touchpad while typing
+syndaemon -i .5 -K -t -R -d &
+
+### SETTINGS END
+
+## GNOME PolicyKit authentication
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+## Set a wallpaper
+feh --bg-fill ~/Pictures/landscapes/custom-1366x768-r.png &
+
+## Compton
+## NOTE: composition must be started before tint2
+compton -f -D5 -r12 --inactive-dim 0.1 --shadow-exclude "class_g = 'conky'" --focus-exclude "class_g = 'conky'" &
+
+## Start PulseAudio
+## (This replaces /etc/xdg/autostart/pulseaudio.desktop
+## which is disabled by ~/.config/autostart/pulseaudio.desktop.)
+## NOTE: PulseAudio must be started before volumeicon
+#
+tint2 &
+volti &
+#redshift -l 50.0593325:14.1854451 -g 0.6 -t 5500:3000 &
+redshift -l 50.0593325:14.1854451 -g 0.6 -t 5000:2500 &
+conky &
+x-terminal-emulator &
