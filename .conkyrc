@@ -1,0 +1,101 @@
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_transparent no
+own_window_colour 333333
+own_window_hints undecorated,below,skip_taskbar
+background yes
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# fiddle with window
+use_spacer no
+use_xft no
+
+# Update interval in seconds
+update_interval 2
+
+# Minimum size of text area
+minimum_size 150 5
+
+# Draw shades?
+draw_shades no
+
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+
+uppercase no # set to yes if you want all text to be in uppercase
+
+# Stippled borders?
+stippled_borders 8
+
+# border margins
+#border_margin 4
+
+# border width
+border_width 1
+
+# Colour definitions
+default_color grey30
+default_shade_color black
+default_outline_color silver
+highlight_color #6d049e
+
+own_window_colour black
+own_window_transparent yes
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+gap_x 100
+gap_y 100
+
+# stuff after 'TEXT' will be formatted on screen
+
+override_utf8_locale no
+xftfont Ubuntu:size=8
+#xftalpha 0.8
+
+TEXT
+
+${color slate grey}${time %a, }      ${color }${time %e.%b.%G}
+${color slate grey}Time:            ${color }${time %H:%M}
+${color slate grey}POSIX:      ${color }${time %s}
+${color slate grey}UpTime:     ${color }$uptime
+${color slate grey}Kern:    ${color }$kernel
+${color slate grey}CPU:${color }      $cpu%      ${acpitemp}'C
+${cpugraph 20,130 333333 ffffff}
+#${color slate grey}Load: ${color }$loadavg
+${color slate grey}Processes:         ${color }$processes  
+${color slate grey}Running:             ${color }$running_processes
+
+${color slate grey}Highest CPU:
+${color a200ff}${top name 1}${top_mem cpu 1}
+${color }${top name 2}${top cpu 2}
+${color }${top name 3}${top cpu 3}
+${color }${top name 4}${top cpu 4}
+
+${color slate grey}Highest MEM:
+${color a200ff}${top_mem name 1}${top_mem mem 1}
+${color }${top_mem name 2}${top_mem mem 2}
+${color }${top_mem name 3}${top_mem mem 3}
+${color }${top_mem name 4}${top_mem mem 4}
+
+${color slate grey}MEM:   ${color } $mem/$memmax
+${membar 5,135}
+${color slate grey}SWAP:      ${color }$swap/$swapmax
+${swapbar 3,135}
+${color slate grey}ROOT:   ${color }${fs_free /}/${fs_size /}
+${fs_bar 3,135 /}
+${color slate grey}HOME:   ${color }${fs_free /home}/${fs_size /home}
+${fs_bar 3,135 /home}
+${color slate grey}NET: 
+${color}Up: ${color }     ${upspeed wlp2s0}/s
+${upspeedgraph wlp2s0 20,135 333333 c0c0c0}
+${color}Down:     ${color }${downspeed wlp2s0}/s${color}
+${downspeedgraph wlp2s0 20,135 333333 c0c0c0}
