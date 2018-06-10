@@ -1,0 +1,2 @@
+# dotCONFIG
+~/.config/ goodies
