@@ -6,8 +6,8 @@ noremap <C-C> :update<CR>
 
 " moving blocks of code
 " keeps selected visual mode
-" vnoremap < <gv
-" vnoremap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 " repeat command . works in visual as well
 vnoremap . :normal .<CR>
@@ -24,7 +24,7 @@ syntax on
 "highlight CursorLine ctermfg=white
 
 " turn on completion menu
-set wildmenu
+"set wildmenu
 
 " highlight searches with /
 "set hlsearch
@@ -51,7 +51,7 @@ set number
 set relativenumber
 highlight LineNr ctermfg=3
 
-"" line length
+" line length
 "set textwidth=79
 set lbr " wraping lines between words
 set wrap
@@ -92,7 +92,7 @@ vmap <Right> <Nop>
 vmap <Up> <Nop>
 vmap <Down> <Nop>
 
-" Preven from going to ex mode with Q
+" Prevent from going to ex mode with Q
 map <S-Q> <Nop>
 " Prevent from going to recording with q
 map q <Nop>
@@ -101,13 +101,8 @@ map q <Nop>
 map <F8> : !gcc % && ./a.out <CR>
 
 " Automatically closing ( [ {
-" wip
 " not ' for obvious reasons
 "inoremap ( ()<left>
 "inoremap [ []<left>
 "inoremap { {}<left>
 "inoremap " ""<left>
-
-" Line below and over current
-" nmap <C-o> o<Esc>O
-
