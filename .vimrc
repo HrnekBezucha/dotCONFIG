@@ -1,5 +1,29 @@
+" stop pretending to be vi
+set nocompatible
+
 " autoreload .vimrc
 autocmd! bufwritepost .vimrc source %
+
+
+" FINDING FILES:
+" look in subdirectories and subdirectories of
+"   subdirectories
+set path+=**
+" tab completion menu
+set wildmenu
+
+" AUTOCOMPLETE:
+" documented in |ins-completion|
+" ^n   - anything to 'complete'
+" ^p   - anything to 'complete' in reverse
+" ^x^n - just in this file
+" ^x^f - files and directories
+" and then ^n and ^p to scroll the list
+"
+" FILE BROWSING:
+let g:netrw_banner=0  " disable banner
+" :edit opens browser in a directory
+" documented in |netrw-browse-maps|
 
 " Quicksave command
 noremap <C-C> :update<CR>
@@ -17,15 +41,6 @@ syntax on
 " detect filetype and sets indent etc etc
 "filetype plugin indent on
 
-" cursor line highlight
-"set cursorline
-"highlight CursorLine cterm=bold
-" light grey text on active line
-"highlight CursorLine ctermfg=white
-
-" turn on completion menu
-"set wildmenu
-
 " highlight searches with /
 "set hlsearch
 " ignore case sensitivity
@@ -41,14 +56,14 @@ set autoindent
 set smartindent
 
 " yank to clipboard
-" doesn't work on this ver.
-" set clipboard=unnamed
+" doesn't work on my ver.
+" some clipboards work with +
+" and some with *
+" set clipboard=unnamedplus
 
-" line numbers
-" should be working properly with vim7.4
-" in 7.3.xx shows zero instead of absolute number
 set number
 set relativenumber
+" colour of line numbers
 highlight LineNr ctermfg=3
 
 " line length
@@ -78,7 +93,7 @@ if has("autocmd")
 endif
 
 " demap arrow keys
-" still works in cmd mod
+" Don't be stupid
 imap <Left> <Nop>
 imap <Right> <Nop>
 imap <Up> <Nop>
@@ -93,6 +108,7 @@ vmap <Up> <Nop>
 vmap <Down> <Nop>
 
 " Prevent from going to ex mode with Q
+" Because what is Ex mode for again?
 map <S-Q> <Nop>
 " Prevent from going to recording with q
 map q <Nop>
@@ -101,6 +117,8 @@ map q <Nop>
 map <F8> : !gcc % && ./a.out <CR>
 
 " Automatically closing ( [ {
+" use again when figured out
+"   how to close them nicely
 " not ' for obvious reasons
 "inoremap ( ()<left>
 "inoremap [ []<left>
