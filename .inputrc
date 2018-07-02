@@ -1,0 +1,21 @@
+$include /etc/inputrc
+
+# Set vi editing mode
+set editing-mode vi
+
+# show mode in readline
+set show-mode-in-prompt On
+
+# vi mode markers
+set vi-cmd-mode-string -C-
+set vi-ins-mode-string -I-
+
+# Show all completions on Tab
+set show-all-if-ambiguous On
+
+# Case insensitive Tab completions
+set completion-ignore-case On
+
+# Tab scrolls through completions
+"\C-i": menu-complete
+
