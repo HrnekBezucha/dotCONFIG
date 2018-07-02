@@ -4,7 +4,6 @@ set nocompatible
 " autoreload .vimrc
 autocmd! bufwritepost .vimrc source %
 
-
 " FINDING FILES:
 " look in subdirectories and subdirectories of
 "   subdirectories
@@ -26,7 +25,13 @@ let g:netrw_banner=0  " disable banner
 " documented in |netrw-browse-maps|
 
 " Quicksave command
-noremap <C-C> :update<CR>
+nnoremap <C-C> :update<CR>
+
+" keep cursor in the middle-ish
+set scrolloff=5
+" in extreme cases:
+" nnoremap j jzz
+" nnoremap k kzz
 
 " moving blocks of code
 " keeps selected visual mode
