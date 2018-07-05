@@ -24,6 +24,11 @@ let g:netrw_banner=0  " disable banner
 " :edit opens browser in a directory
 " documented in |netrw-browse-maps|
 
+" show commands in statusbar
+set showcmd
+" fancy bar
+set laststatus=2
+
 " Quicksave command
 nnoremap <C-C> :update<CR>
 
