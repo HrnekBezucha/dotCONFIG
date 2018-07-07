@@ -96,6 +96,7 @@ alias ll='ls -l'
 alias la='ls -AF'
 alias l='ls -lAhF'
 alias p='pwd ; ls -CF'
+alias ld='ls -lAh | grep "^d"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
