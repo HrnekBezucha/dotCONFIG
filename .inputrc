@@ -7,8 +7,8 @@ set editing-mode vi
 set show-mode-in-prompt On
 
 # vi mode markers
-set vi-cmd-mode-string -C-
-set vi-ins-mode-string -I-
+set vi-cmd-mode-string [C]
+set vi-ins-mode-string [I]
 
 # Show all completions on Tab
 set show-all-if-ambiguous On
@@ -17,5 +17,6 @@ set show-all-if-ambiguous On
 set completion-ignore-case On
 
 # Tab scrolls through completions
-"\C-i": menu-complete
+#"\C-i": menu-complete
 
+set bell-style audible

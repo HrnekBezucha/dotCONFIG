@@ -81,6 +81,9 @@ highlight LineNr ctermfg=3
 set lbr " wraping lines between words
 set wrap
 
+" silence the bell
+set visualbell
+
 " longer history
 set history=100
 set undolevels=100
@@ -121,7 +124,7 @@ vmap <Down> <Nop>
 " Because what is Ex mode for again?
 map <S-Q> <Nop>
 " Prevent from going to recording with q
-map q <Nop>
+"map q <Nop>
 
 " Press F8 to compile and run C code
 map <F8> : !gcc % && ./a.out <CR>
