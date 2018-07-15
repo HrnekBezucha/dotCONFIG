@@ -19,4 +19,4 @@ set completion-ignore-case On
 # Tab scrolls through completions
 #"\C-i": menu-complete
 
-set bell-style audible
+set bell-style visible
