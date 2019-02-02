@@ -2,6 +2,7 @@
 set nocompatible
 
 " autoreload .vimrc
+" not available in vi
 autocmd! bufwritepost .vimrc source %
 
 " FINDING FILES:
@@ -33,10 +34,7 @@ set laststatus=2
 nnoremap <C-C> :update<CR>
 
 " keep cursor in the middle-ish
-set scrolloff=5
-" in extreme cases:
-" nnoremap j jzz
-" nnoremap k kzz
+set scrolloff=10
 
 " moving blocks of code
 " keeps selected visual mode
@@ -47,12 +45,13 @@ vnoremap > >gv
 vnoremap . :normal .<CR>
 
 " syntax highlighting
-syntax on
+" not available in vi
+" syntax on
 " detect filetype and sets indent etc etc
 "filetype plugin indent on
 
 " highlight searches with /
-"set hlsearch
+" set hlsearch
 " ignore case sensitivity
 set ignorecase
 " if you search Capitalized searches case sensitive
@@ -77,7 +76,7 @@ set relativenumber
 highlight LineNr ctermfg=3
 
 " line length
-"set textwidth=79
+set textwidth=79
 set lbr " wraping lines between words
 set wrap
 
@@ -90,11 +89,11 @@ set undolevels=100
 
 " TABS and indents
 " how long is a tab
-set tabstop=2
+set tabstop=4
 " replace tab with spaces
 set expandtab
 " shifting with >>
-set shiftwidth=2
+set shiftwidth=4
 " Only do this part when compiled with support for autocommands.
 " makefiles need proper 8 space tab char
 " otherwise won't compile
@@ -126,14 +125,9 @@ map <S-Q> <Nop>
 " Prevent from going to recording with q
 "map q <Nop>
 
-" Press F8 to compile and run C code
-map <F8> : !gcc % && ./a.out <CR>
+" Press F8 to execute code
+"   % is current file name
+"   :p is absolute path, in case you're somewhere else
+"   "" are to deal with whitespaces
+map <F8> :!"%:p"<CR>
 
-" Automatically closing ( [ {
-" use again when figured out
-"   how to close them nicely
-" not ' for obvious reasons
-"inoremap ( ()<left>
-"inoremap [ []<left>
-"inoremap { {}<left>
-"inoremap " ""<left>
